@@ -1,6 +1,5 @@
 FROM node:alpine
 RUN apk add --no-cache git
-RUN npm install -g nuxt
 WORKDIR /app
 RUN git clone https://github.com/amvstrm/amvstrm.git
 WORKDIR /app/amvstrm
