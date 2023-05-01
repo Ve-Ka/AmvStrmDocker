@@ -11,12 +11,12 @@ RUN npm install --verbose
 RUN npm run build
 RUN rm -rf .git .github .gitignore .vscode LICENSE README.md
 RUN node-prune node_modules
+RUN chmod -R 777 .
 
 FROM node:alpine
 RUN mkdir /app
 RUN mkdir /app/amvstrm
 WORKDIR /app/amvstrm
 COPY --from=BUILD_IMAGE /app/amvstrm .
-RUN chmod -R 777 .
 EXPOSE 80
 CMD npm start
